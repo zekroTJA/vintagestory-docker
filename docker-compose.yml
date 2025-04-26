@@ -1,0 +1,29 @@
+# Comment out for enabling automatic backups.
+# secrets:
+#   minecraftrclone:
+#     file: rclone.conf
+
+volumes:
+  vintagestory:
+
+services:
+  vintagestory:
+    build: .
+    image: ghcr.io/zekrotja/vintagestory-docker:latest
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    ports:
+      - 42420:42420
+    environment:
+      DATA_PATH: /var/vinstagestory
+      # Comment out for enabling automatic backups.
+      # PRE_START_BACKUP: true
+      # POST_START_BACKUP: false
+      # BACKUP_FILE_FORMAT: "%Y-%m-%d-%H-%M-%S"
+      # ENV MAX_AGE_BACKUP_FILES: 30d
+    volumes:
+      - vintagestory:/var/vinstagestory
+    # secrets: # Comment out for enabling automatic backups.
+    #   - source: minecraftrclone
+    #     target: rcloneconfig
