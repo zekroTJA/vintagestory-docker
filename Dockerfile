@@ -7,6 +7,7 @@ ARG CHANNEL="stable"
 
 WORKDIR /server
 COPY scripts /var/scripts
+RUN chmod +x /var/scripts/*.sh
 RUN apt-get update && apt-get install -y curl zip rclone
 RUN curl -sSf -o server.tar.gz https://cdn.vintagestory.at/gamefiles/${CHANNEL}/vs_server_linux-x64_${VERSION}.tar.gz \
     && tar -xzvf server.tar.gz \
