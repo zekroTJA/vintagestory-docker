@@ -23,4 +23,4 @@ is_true "$PRE_START_BACKUP" && backup "pre"
 # shellcheck disable=SC2068
 dotnet /server/VintagestoryServer.dll --dataPath "$DATA_PATH" $@
 
-is_true "$PRE_START_BACKUP" && backup "post"
+is_true "$POST_START_BACKUP" && backup "post"
