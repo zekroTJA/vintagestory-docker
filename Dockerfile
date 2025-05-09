@@ -2,7 +2,7 @@ ARG RUNTIME_VERSION="7.0"
 
 FROM mcr.microsoft.com/dotnet/runtime:${RUNTIME_VERSION}
 
-ARG VERSION="1.20.9"
+ARG VERSION="1.20.10"
 ARG CHANNEL="stable"
 
 WORKDIR /server
